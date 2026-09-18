@@ -446,4 +446,26 @@ body{scroll-behavior:smooth}
  },{passive:false});
  addEventListener('scroll',()=>{if(!raf){current=target=scrollY}},{passive:true});
 })();
-</script></body></html>
+</script><style id="logo-tight-crop-v3">
+/* Show only the actual artwork: crop transparent/empty margins inside the source PNG */
+.header .logo-mark{
+ width:138px!important;height:104px!important;flex:0 0 138px!important;
+ overflow:hidden!important;margin-top:30px!important;
+ background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;
+}
+.header .logo-mark img{
+ width:178px!important;height:138px!important;max-width:none!important;
+ object-fit:contain!important;display:block!important;
+ transform:translate(20px,-17px) scale(1.18);
+ transform-origin:center;
+ background:transparent!important;border:0!important;outline:0!important;
+ box-shadow:none!important;border-radius:0!important;filter:none!important;
+}
+.header .logo:hover .logo-mark img{transform:translate(20px,-17px) scale(1.23)}
+.header .logo-mark img{transition:transform .35s cubic-bezier(.2,.75,.25,1)}
+@media(max-width:900px){
+ .header .logo-mark{width:112px!important;height:86px!important;flex-basis:112px!important;margin-top:22px!important}
+ .header .logo-mark img{width:148px!important;height:116px!important;transform:translate(18px,-15px) scale(1.16)}
+ .header .logo:hover .logo-mark img{transform:translate(18px,-15px) scale(1.20)}
+}
+</style></body></html>
