@@ -255,6 +255,62 @@ body{background:#fbfdfc}.header{background:rgba(7,62,67,.91);border-bottom:1px s
  .header .premium-nav{height:72px!important;min-height:72px!important}
  .header .logo-frame img{width:112px!important}
 }
+</style><style id="header-hero-redesign-v5">
+/* Header: larger centered logo with protected breathing room */
+.header .premium-nav{height:104px!important;min-height:104px!important;display:grid!important;grid-template-columns:1fr 220px 1fr!important;align-items:center!important;column-gap:30px!important}
+.header .logo.logo-image-wrap{position:static!important;grid-column:2!important;grid-row:1!important;transform:none!important;justify-self:center!important;align-self:center!important}
+.header .logo-frame img{width:188px!important;max-height:96px!important;object-fit:contain!important}
+.header .nav-side-primary{grid-column:1!important;grid-row:1!important;justify-self:end!important;padding-left:24px!important}
+.header .nav-side-secondary{grid-column:3!important;grid-row:1!important;justify-self:start!important;padding-right:24px!important}
+.header .nav-side{gap:30px!important}
+.header .nav-side a{white-space:nowrap!important}
+
+/* Hero: cream canvas + continuously moving translucent turquoise ribbons */
+.hero{min-height:720px!important;position:relative!important;overflow:hidden!important;background:#fbf5e9!important;color:#173247!important}
+.hero:before{content:""!important;position:absolute!important;inset:-30% -20%!important;z-index:0!important;opacity:.48!important;background:
+ repeating-linear-gradient(115deg,transparent 0 90px,rgba(38,180,183,.16) 90px 126px,transparent 126px 215px),
+ repeating-linear-gradient(65deg,transparent 0 155px,rgba(17,137,151,.10) 155px 180px,transparent 180px 300px)!important;
+ animation:turquoiseFlow 18s linear infinite!important;will-change:transform!important}
+.hero:after{content:""!important;position:absolute!important;inset:0!important;z-index:0!important;background:radial-gradient(circle at 25% 45%,rgba(255,255,255,.72),transparent 45%),linear-gradient(90deg,rgba(251,245,233,.18),rgba(251,245,233,.72) 68%,#fbf5e9 100%)!important}
+@keyframes turquoiseFlow{from{transform:translate3d(-4%,-3%,0)}to{transform:translate3d(8%,6%,0)}}
+.hero-grid{position:relative!important;z-index:2!important;display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr)!important;gap:64px!important;align-items:center!important;min-height:720px!important}
+.hero-copy{grid-column:1!important;width:auto!important;padding:58px 0 70px!important;position:relative!important;z-index:3!important}
+.hero h1{color:#173247!important;text-shadow:none!important;font-size:clamp(54px,5.5vw,84px)!important}
+.hero h1 span{color:#b98a2f!important;-webkit-text-stroke:0!important;text-shadow:none!important}
+.hero-lead{color:#405968!important;text-shadow:none!important}
+.hero .btn.outline{color:#173247!important;border-color:rgba(23,50,71,.25)!important;background:rgba(255,255,255,.48)!important}
+.hero-trust-line{color:#3c5969!important}
+
+/* Left visual banner */
+.hero-visual-banner{grid-column:2!important;position:relative!important;width:100%!important;height:540px!important;align-self:center!important;direction:ltr!important}
+.hero-photo{position:absolute!important;overflow:hidden!important;border-radius:28px!important;border:7px solid rgba(255,255,255,.84)!important;box-shadow:0 22px 55px rgba(22,68,79,.20)!important;background:#fff!important}
+.hero-photo img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.hero-photo-main{left:4%!important;top:70px!important;width:70%!important;height:390px!important;transform:rotate(-1.5deg)!important}
+.hero-photo-top{right:1%!important;top:12px!important;width:43%!important;height:205px!important;transform:rotate(4deg)!important;z-index:2!important}
+.hero-photo-bottom{right:0!important;bottom:16px!important;width:45%!important;height:210px!important;transform:rotate(-4deg)!important;z-index:3!important}
+.hero-seal{left:18px!important;bottom:6px!important;z-index:5!important;width:142px!important;height:142px!important;transform:none!important}
+
+/* Keep seal visible higher in desktop hero */
+@media(min-width:901px){.hero-seal{bottom:22px!important}}
+@media(max-width:1100px) and (min-width:901px){
+ .header .premium-nav{grid-template-columns:1fr 180px 1fr!important;column-gap:14px!important}
+ .header .logo-frame img{width:160px!important}
+ .header .nav-side{gap:16px!important}
+ .hero-grid{grid-template-columns:1fr 420px!important;gap:30px!important}
+}
+@media(max-width:900px){
+ .header .premium-nav{display:flex!important;height:78px!important;min-height:78px!important}
+ .header .logo.logo-image-wrap{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important}
+ .header .logo-frame img{width:126px!important;max-height:70px!important}
+ .hero{min-height:auto!important}
+ .hero-grid{display:flex!important;flex-direction:column!important;gap:10px!important;min-height:auto!important;padding-top:24px!important}
+ .hero-copy{width:100%!important;padding:34px 0 20px!important}
+ .hero-visual-banner{width:100%!important;height:390px!important}
+ .hero-photo-main{height:280px!important}
+ .hero-photo-top,.hero-photo-bottom{height:145px!important}
+ .hero-seal{width:112px!important;height:112px!important;bottom:8px!important}
+}
+@media(prefers-reduced-motion:reduce){.hero:before{animation:none!important}}
 </style></head><body>
 <div class="top">עמותת אחים נותנים ע״ר • חסד, אחריות ונתינה לאורך כל השנה</div>
 <header class="header premium-cream-header">
@@ -280,8 +336,8 @@ body{background:#fbfdfc}.header{background:rgba(7,62,67,.91);border-bottom:1px s
 </header>
 <main>
 <section class="hero" id="home">
-  <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
-  <div class="hero-shade" aria-hidden="true"></div>
+  
+  
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1>נותנים מכל הלב,<br><span>ומחזירים תקווה הביתה</span></h1>
@@ -289,7 +345,12 @@ body{background:#fbfdfc}.header{background:rgba(7,62,67,.91);border-bottom:1px s
       <div class="actions"><a class="btn gold" href="#donate">לתרומה מאובטחת</a><a class="btn outline" href="#activity">הכירו את הפעילות שלנו</a></div>
       <div class="hero-trust-line"><b>✓</b><span>התרומה שלכם הופכת לעזרה מדויקת בשטח</span></div>
     </div>
-    <div class="hero-seal" aria-label="סיוע בכבוד ובדיסקרטיות"><span class="seal-heart">♡</span><strong>סיוע בכבוד</strong><small>ובדיסקרטיות</small></div>
+    <div class="hero-visual-banner" aria-label="תמונות מפעילות העמותה">
+  <div class="hero-photo hero-photo-main"><img src="א (3).jpg" alt="פעילות אחים נותנים"></div>
+  <div class="hero-photo hero-photo-top"><img src="א (4).jpg" alt="פעילות חסד"></div>
+  <div class="hero-photo hero-photo-bottom"><img src="א (5).jpg" alt="סיוע מהשטח"></div>
+  <div class="hero-seal" aria-label="סיוע בכבוד ובדיסקרטיות"><span class="seal-heart">♡</span><strong>סיוע בכבוד</strong><small>ובדיסקרטיות</small></div>
+</div>
   </div>
 </section>
 <div class="trust"><div class="wrap trust-grid"><div class="trust-item"><b>סיוע מכבד</b>שמירה על פרטיות וכבוד</div><div class="trust-item"><b>פעילות כל השנה</b>סיוע שוטף וחלוקות</div><div class="trust-item"><b>תרומה מאובטחת</b>הסליקה תתבצע באמצעות Grow</div><div class="trust-item"><b>שקיפות ואחריות</b>נתונים מאומתים בלבד</div></div></div>
