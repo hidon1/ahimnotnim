@@ -77,6 +77,28 @@
  .header .premium-nav{grid-template-columns:1fr 300px 1fr!important}
  .header .logo-frame img{width:285px!important;max-height:155px!important}
 }
+</style>
+<style id="ahim-notnim-polish-v8">
+@media(min-width:901px){
+  .header{overflow:visible!important}
+  .nav{height:126px!important;grid-template-columns:1fr 330px 1fr!important;overflow:visible!important}
+  .brand{width:330px!important;height:142px!important;z-index:3;overflow:visible!important}
+  .brand img{width:310px!important;max-width:none!important;max-height:190px!important;transform:translateY(13px);filter:drop-shadow(0 14px 18px rgba(6,63,66,.16))}
+  .nav-side{font-size:16px!important;gap:26px!important}
+  .nav-side.left{justify-content:flex-end!important}
+  .float-partner{right:30px!important;bottom:30px!important;animation:softPartnerPulse 4.2s ease-in-out infinite}
+  .float-wa{left:30px!important;bottom:30px!important}
+}
+.hero{overflow:hidden;background:radial-gradient(circle at 8% 16%,rgba(24,165,162,.18),transparent 30%),linear-gradient(135deg,#fffdf8 0%,#f4efe4 54%,#e6f4ef 100%)}
+.collage:before{content:"";position:absolute;inset:4% -4% -4% 4%;border:1px solid rgba(199,162,83,.26);border-radius:38px;transform:rotate(-3deg);pointer-events:none}
+.photo{transition:transform .5s ease,box-shadow .5s ease}.photo:hover{box-shadow:0 34px 90px rgba(6,48,50,.24)}
+.lang{cursor:pointer;transition:.25s}.lang:hover{border-color:var(--gold);box-shadow:0 8px 18px rgba(199,162,83,.16)}
+.float-partner,.float-wa{bottom:30px;transform:translateZ(0)}
+.float-wa{box-shadow:0 14px 35px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.45)}
+@keyframes softPartnerPulse{0%,100%{opacity:1;box-shadow:0 14px 34px rgba(175,132,42,.24)}50%{opacity:.88;box-shadow:0 16px 40px rgba(175,132,42,.38)}}
+html[lang="en"] body{direction:ltr}html[lang="en"] .hero-copy,html[lang="en"] .section-head{text-align:left}html[lang="en"] .section-head{margin-left:0;margin-right:auto}html[lang="en"] .hero-copy p{margin-left:0}html[lang="en"] .nav-side.left{justify-content:flex-start!important}html[lang="en"] .gallery-grid figcaption{left:15px;right:auto}html[lang="en"] .contact-grid{direction:ltr}
+@media(max-width:900px){.nav{height:86px!important}.brand{height:82px!important}.brand img{max-width:180px!important;max-height:110px!important;transform:translateY(7px)}.float-wa{left:22px!important;bottom:22px!important}.hero-grid{gap:38px}.collage:before{inset:2% 0 -2% 0}.float-partner{display:none!important}}
+@media(prefers-reduced-motion:reduce){.float-partner{animation:none!important}}
 </style></head>
 <body>
 <header class="header"><div class="wrap nav">
@@ -122,4 +144,27 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('on'));
 </script>
-</body></html>
+
+<script id="language-toggle">
+const translations={
+"עמותת אחים נותנים | חסד, שותפות ונתינה":"Ahim Notnim | Kindness, Partnership & Giving",
+"עמותת אחים נותנים – סיוע למשפחות, קשישים, אלמנות ויתומים, חתנים וכלות, לומדי תורה ופרויקטים של חסד ויהדות.":"Ahim Notnim — support for families, seniors, widows and orphans, brides and grooms, Torah learners, and Jewish community projects.",
+"דף הבית":"Home","על העמותה":"About Us","הפעילות שלנו":"Our Work","גלריה":"Gallery","צור קשר":"Contact","לשותפות":"Partner With Us","עברית ▾":"English ▾","אחים נותנים":"Ahim Notnim",
+"עמותת אחים נותנים • חסד שמגיע עד הבית":"Ahim Notnim • Kindness that reaches home","נותנים מכל הלב.":"Giving from the heart.","מחזירים תקווה הביתה.":"Bringing hope home.","מחברים בין אנשים שרוצים לעשות טוב לבין משפחות ויחידים הזקוקים ליד תומכת — ברגישות, באחריות, בדיסקרטיות ובכבוד.":"We connect people who want to do good with families and individuals who need a helping hand — with sensitivity, responsibility, discretion and dignity.","להצטרף לשותפות":"Join the partnership","להכיר את הפעילות":"Explore our work","סיוע מכבד":"Dignified support","פעילות לאורך השנה":"Year-round activity","נתינה באחריות":"Responsible giving","תמונות מפעילות העמותה":"Images from our activity","פעילות אחים נותנים":"Ahim Notnim activity","פעילות חסד בקהילה":"Community kindness activity","סיוע של העמותה":"Support by the charity","סיוע בכבוד":"Support with dignity","ובדיסקרטיות":"and discretion",
+"כבוד ורגישות":"Dignity & sensitivity","סיוע אנושי ומכבד":"Human, respectful support","פעילות כל השנה":"Active all year","מענה שוטף וחלוקות":"Ongoing support and distributions","שותפות אמיתית":"True partnership","הנתינה הופכת לעשייה":"Giving becomes action","אחריות ושקיפות":"Responsibility & transparency","מידע מאומת בלבד":"Verified information only",
+"חסד מעשי, בדיוק במקום שבו צריך אותו":"Practical kindness, exactly where it is needed","העמותה פועלת במגוון תחומים כדי לתת מענה אמיתי לצרכים של משפחות, יחידים וקהילות.":"We work across several areas to respond to the real needs of families, individuals and communities.","משפחות נזקקות":"Families in need","קשישים":"Seniors","אלמנות ויתומים":"Widows & orphans","חתנים וכלות":"Brides & grooms","אברכים ולומדי תורה":"Torah learners","סיוע לחיילים":"Support for soldiers","חלוקות לחגים":"Holiday distributions","גמ״ח מטרנות":"Baby essentials fund","הפצת יהדות":"Jewish outreach","תשמישי קדושה":"Judaica & religious items","בניית מקוואות":"Mikveh projects","פעילות תורנית וקהילתית":"Torah & community activity",
+"על העמותה":"About Us","אחים נותנים — כי אף אחד לא צריך להתמודד לבד":"Ahim Notnim — no one should face hardship alone","החזון שלנו:":"Our vision:","כבוד":"Dignity","אחריות":"Responsibility","דיסקרטיות":"Discretion","קהילה":"Community","סיוע ששומר על האדם במרכז.":"Support that keeps people at the center.","עשייה שקולה ומסודרת.":"Careful, organized action.","שמירה על פרטיות מקבלי הסיוע.":"Protecting recipients’ privacy.","חיבור בין שותפים לעשייה בשטח.":"Connecting partners to real-world action.",
+"איך השותפות עובדת":"How partnership works","מהנתינה שלכם — לעזרה אמיתית":"From your giving to real help","תהליך פשוט שמחבר בין הרצון לתת לבין הצורך בשטח.":"A simple process connecting the desire to give with needs on the ground.","השותפות מתחילה":"Partnership begins","התרומה מתקבלת בצורה מסודרת":"Your contribution is received responsibly","הצורך נבדק":"The need is reviewed","הסיוע מותאם למקרה ולצורך":"Support is tailored to the case","העזרה יוצאת לדרך":"Help gets underway","מזון, ציוד או סיוע מתאים":"Food, supplies or appropriate support","מגיעים בכבוד":"We arrive with dignity","בדיסקרטיות וברגישות":"With discretion and sensitivity",
+"מהשטח":"From the field","העשייה שמאחורי המילים":"The work behind the words","תמונות מפעילות העמותה, מהחלוקות ומהעשייה למען הקהילה.":"Images from our activity, distributions and community work.","פעילות חסד מהשטח":"Kindness in action","עשייה למען הקהילה":"Work for the community","סיוע שמגיע בכבוד":"Support delivered with dignity","אחים נותנים בפעילות":"Ahim Notnim in action",
+"גם אתם יכולים להיות חלק מהחסד":"You can be part of this kindness","כל שותפות מאפשרת להמשיך להגיע לעוד אדם, לעוד משפחה ולעוד בית שזקוק לעזרה.":"Every partnership helps us reach another person, family and home in need.","אני רוצה להיות שותף":"I want to partner","אנחנו כאן בשבילכם":"We are here for you","עמותת אחים נותנים ע״ר":"Ahim Notnim Association","לפניות, שותפויות, תרומות ומידע נוסף:":"For inquiries, partnerships, donations and more:","שם":"Name","טלפון":"Phone","אימייל":"Email","נושא הפנייה":"Subject","תוכן הפנייה":"Your message","שליחת פנייה":"Send message","ניווט":"Navigation","יצירת קשר":"Contact","חסד, אחריות ונתינה לאורך כל השנה.":"Kindness, responsibility and giving all year long.","© עמותת אחים נותנים ע״ר • כל הזכויות שמורות":"© Ahim Notnim Association • All rights reserved","חסד, שותפות ונתינה":"Kindness, partnership and giving"
+};
+const originalAttrs=new WeakMap();let english=false;
+function translatePage(toEnglish){
+  english=toEnglish;document.documentElement.lang=english?'en':'he';document.documentElement.dir=english?'ltr':'rtl';
+  document.querySelectorAll('[title],[aria-label],[alt],[placeholder]').forEach(el=>['title','aria-label','alt','placeholder'].forEach(a=>{if(!originalAttrs.has(el))originalAttrs.set(el,{});const o=originalAttrs.get(el);if(o[a]===undefined)o[a]=el.getAttribute(a)||'';const v=el.getAttribute(a);if(english&&translations[v])el.setAttribute(a,translations[v]);else if(!english&&o[a]!==undefined)el.setAttribute(a,o[a]);}));
+  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+  nodes.forEach(n=>{const value=n.nodeValue.trim();if(!value)return;if(!originalAttrs.has(n))originalAttrs.set(n,{text:n.nodeValue});const o=originalAttrs.get(n);if(english&&translations[value])n.nodeValue=n.nodeValue.replace(value,translations[value]);else if(!english&&o.text!==undefined)n.nodeValue=o.text;});
+  document.querySelector('.lang').textContent=english?'עברית ▾':'English ▾';document.title=english?'Ahim Notnim | Kindness, Partnership & Giving':'עמותת אחים נותנים | חסד, שותפות ונתינה';
+}
+document.querySelector('.lang').removeAttribute('title');document.querySelector('.lang').addEventListener('click',()=>translatePage(!english));
+</script></body></html>
