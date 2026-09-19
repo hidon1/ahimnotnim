@@ -158,6 +158,25 @@ const translations={
 "מהשטח":"From the field","העשייה שמאחורי המילים":"The work behind the words","תמונות מפעילות העמותה, מהחלוקות ומהעשייה למען הקהילה.":"Images from our activity, distributions and community work.","פעילות חסד מהשטח":"Kindness in action","עשייה למען הקהילה":"Work for the community","סיוע שמגיע בכבוד":"Support delivered with dignity","אחים נותנים בפעילות":"Ahim Notnim in action",
 "גם אתם יכולים להיות חלק מהחסד":"You can be part of this kindness","כל שותפות מאפשרת להמשיך להגיע לעוד אדם, לעוד משפחה ולעוד בית שזקוק לעזרה.":"Every partnership helps us reach another person, family and home in need.","אני רוצה להיות שותף":"I want to partner","אנחנו כאן בשבילכם":"We are here for you","עמותת אחים נותנים ע״ר":"Ahim Notnim Association","לפניות, שותפויות, תרומות ומידע נוסף:":"For inquiries, partnerships, donations and more:","שם":"Name","טלפון":"Phone","אימייל":"Email","נושא הפנייה":"Subject","תוכן הפנייה":"Your message","שליחת פנייה":"Send message","ניווט":"Navigation","יצירת קשר":"Contact","חסד, אחריות ונתינה לאורך כל השנה.":"Kindness, responsibility and giving all year long.","© עמותת אחים נותנים ע״ר • כל הזכויות שמורות":"© Ahim Notnim Association • All rights reserved","חסד, שותפות ונתינה":"Kindness, partnership and giving"
 };
+
+Object.assign(translations,{
+"מזון, מוצרי יסוד, ביגוד וצרכים בסיסיים למשפחות המתמודדות עם קושי כלכלי.":"Food, essentials, clothing and basic needs for families facing financial hardship.",
+"תמיכה, מזון ומוצרי יסוד לקשישים הזקוקים לעזרה בתקופות קשות.":"Support, food and essentials for seniors who need help during difficult times.",
+"סיוע רגיש למשפחות המתמודדות עם אובדן ועם מציאות כלכלית מורכבת.":"Sensitive support for families facing loss and financial hardship.",
+"סיוע לזוגות לקראת הקמת בית בישראל ובצרכים הנדרשים לקראת החתונה.":"Support for couples preparing to build a Jewish home and for wedding-related needs.",
+"סיוע ומלגות למשפחות עמלי תורה בהתאם לפעילות ולתקציבים.":"Support and scholarships for Torah-centered families, according to our programs and resources.",
+"סיוע בענייני דת ויהדות ומתן ציוד וצרכים יהודיים לפי הצורך.":"Religious and Jewish support, equipment and Judaica according to need.",
+"סלי מזון, תלושים ומארזים לקראת פסח, ראש השנה, סוכות ומועדי ישראל.":"Food baskets, vouchers and packages for Passover, Rosh Hashanah, Sukkot and Jewish holidays.",
+"מוצרי תינוקות וצרכים בסיסיים למשפחות בהתאם לצורך.":"Baby products and basic essentials for families according to need.",
+"חיזוק הזהות היהודית, הפצת תורה וסיוע לפעילות רוחנית וקהילתית.":"Strengthening Jewish identity, sharing Torah and supporting spiritual and community activity.",
+"סיוע בציוד ובתשמישי קדושה למשפחות ולאנשים הזקוקים לכך.":"Equipment and Judaica support for families and individuals who need it.",
+"סיוע וקידום פרויקטים של בניית מקוואות וחיזוק צורכי הקדושה והקהילה.":"Supporting and advancing mikveh projects and strengthening community religious needs.",
+"תמיכה ביוזמות חסד ופעילות תורנית וקהילתית בהתאם למטרות העמותה.":"Support for kindness initiatives and Torah and community activity aligned with the association’s mission.",
+"עמותת אחים נותנים הוקמה מתוך רצון פשוט: לראות אדם שזקוק לעזרה ולא לעבור לידו. העמותה פועלת לסיוע למשפחות נזקקות, קשישים, אלמנות ויתומים, חתנים וכלות, אברכים ומשפחות, חיילים בענייני דת ויהדות, וכן לקידום חסד, הפצת יהדות וחיזוק צורכי הקהילה.":"Ahim Notnim was founded from a simple desire: to see a person in need and not walk past. We support families in need, seniors, widows and orphans, brides and grooms, Torah learners, soldiers with Jewish needs, and community kindness and Jewish outreach.",
+"לאורך השנה מתקיימות פעילויות סיוע וחלוקות, במיוחד בתקופות החגים, לצד גמ״חים ופרויקטים שנועדו לתת מענה לצרכים אמיתיים בשטח.":"Throughout the year we run support activities and distributions, especially around the holidays, alongside funds and projects that respond to real needs on the ground.",
+"להרחיב את מעגל הנתינה ולהגיע לעוד אנשים הזקוקים ליד תומכת — מתוך כבוד, אחריות ורגישות.":"To expand the circle of giving and reach more people who need a helping hand — with dignity, responsibility and sensitivity.",
+"שליחת פנייה":"Send message","חסד, אחריות ונתינה לאורך כל השנה.":"Kindness, responsibility and giving all year long.","ניווט":"Navigation","יצירת קשר":"Contact","© עמותת אחים נותנים ע״ר • כל הזכויות שמורות":"© Ahim Notnim Association • All rights reserved","שם":"Name","טלפון":"Phone","אימייל":"Email","נושא הפנייה":"Subject","תוכן הפנייה":"Your message"
+});
 const originalAttrs=new WeakMap();let english=false;
 function translatePage(toEnglish){
   english=toEnglish;document.documentElement.lang=english?'en':'he';document.documentElement.dir=english?'ltr':'rtl';
