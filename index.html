@@ -177,6 +177,21 @@ body{background-color:#f8fcfa;background-image:repeating-linear-gradient(116deg,
 .float-partner:hover{background:linear-gradient(145deg,#087a7c,#07585b 65%,#04383b)!important;transform:translateY(-5px)!important}
 @media(max-width:900px){body{animation:none;background-attachment:scroll}.nav-tools .btn.gold{box-shadow:none}}
 @media(prefers-reduced-motion:reduce){body{animation:none!important}}
+</style><style id="details-gallery-button-v13">
+/* Partnership button: no decorative AI/spark icon, label only */
+.float-partner:before{content:none!important;display:none!important}
+.float-partner{min-width:190px!important;border-radius:999px!important;padding:14px 30px!important;letter-spacing:.02em;background:linear-gradient(135deg,#0a7778,#063f42 68%,#032e31)!important;color:#fff4c4!important;border:1px solid rgba(229,204,138,.9)!important;box-shadow:0 4px 0 #022326,0 18px 42px rgba(3,46,49,.35),inset 0 1px rgba(255,255,255,.3)!important}
+.float-partner:after{inset:4px!important;border-radius:999px!important;border-color:rgba(229,204,138,.34)!important}
+.float-partner:hover{background:linear-gradient(135deg,#18a5a2,#07585b 68%,#04383b)!important}
+.details-modal{width:min(900px,94vw)!important;padding:0!important;overflow:hidden!important;background:linear-gradient(145deg,#fffefa,#eef8f5)!important}
+.details-layout{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);gap:0;min-height:430px}
+.details-gallery{position:relative;min-height:430px;background:var(--b900);overflow:hidden}
+.details-gallery img{position:absolute;inset:18px;width:calc(100% - 36px);height:calc(100% - 36px);object-fit:cover;border-radius:24px;border:1px solid rgba(229,204,138,.7);box-shadow:0 20px 50px rgba(0,0,0,.3);opacity:0;transform:scale(1.04);transition:opacity .9s ease,transform 1.2s ease}
+.details-gallery img.active{opacity:1;transform:scale(1)}
+.details-copy{padding:54px 42px 38px;display:flex;flex-direction:column;justify-content:center}.details-copy h3{margin:0 0 16px!important}.details-copy p{font-size:18px!important;line-height:1.8}.details-copy .btn{align-self:flex-start;margin-top:10px}
+.details-kicker{font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--b700);margin-bottom:8px}
+@media(max-width:700px){.details-layout{grid-template-columns:1fr}.details-gallery{min-height:270px}.details-copy{padding:38px 24px 30px}.details-copy .btn{align-self:stretch}.details-modal h3{font-size:2.25rem!important}}
+html[lang="en"] .details-copy,html[lang="ru"] .details-copy{text-align:left}
 </style></head>
 <body>
 <header class="header"><div class="wrap nav">
@@ -301,12 +316,13 @@ function updateDetailsLanguage(lang){
  if(activeModal){activeModal.querySelector('.details-close').textContent='×';activeModal.querySelector('p').textContent=detailCopy[lang].intro;}
 }
 function openDetails(card){
- const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><button class="details-close" aria-label="Close">×</button><h3></h3><p></p><a class="btn gold" href="#partner"></a></div>';
+ const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><div class="details-layout"><div class="details-gallery" aria-label="תמונות מהפעילות"><img src="א (3).jpg" class="active" alt="פעילות העמותה"><img src="א (4).jpg" alt="סיוע בקהילה"><img src="א (5).jpg" alt="פעילות חסד"><img src="א (6).jpg" alt="סיוע למשפחות"></div><div class="details-copy"><button class="details-close" aria-label="Close">×</button><div class="details-kicker">עמותת אחים נותנים</div><h3></h3><p></p><a class="btn gold" href="#partner"></a></div></div></div>';
  modal.querySelector('h3').textContent=card.querySelector('h3').textContent;
  modal.querySelector('p').textContent=detailCopy[currentLanguage].intro;
  modal.querySelector('a').textContent=currentLanguage==='he'?'לשותפות':currentLanguage==='en'?'Partner with us':'Стать партнёром';
  document.body.appendChild(modal);activeModal=modal;
- const close=()=>{modal.classList.remove('open');setTimeout(()=>modal.remove(),220);activeModal=null};
+ let galleryIndex=0;const galleryImages=[...modal.querySelectorAll('.details-gallery img')];const galleryTimer=setInterval(()=>{galleryImages[galleryIndex].classList.remove('active');galleryIndex=(galleryIndex+1)%galleryImages.length;galleryImages[galleryIndex].classList.add('active');},4200);
+ const close=()=>{clearInterval(galleryTimer);modal.classList.remove('open');setTimeout(()=>modal.remove(),220);activeModal=null};
  modal.querySelector('a').addEventListener('click',event=>{event.preventDefault();close();setTimeout(()=>document.querySelector('#partner')?.scrollIntoView({behavior:'smooth',block:'start'}),80);});
  modal.addEventListener('click',e=>{if(e.target===modal||e.target.closest('.details-close'))close()});
  document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',esc)}});
