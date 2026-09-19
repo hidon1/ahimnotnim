@@ -238,6 +238,11 @@ html[lang="en"] .section-head .eyebrow:after,html[lang="en"] .about-copy .eyebro
 .about:after{background-image:linear-gradient(90deg,rgba(238,246,243,.92),rgba(238,246,243,.84)),url("א (4).jpg")}
 .gallery:after{background-image:linear-gradient(90deg,rgba(255,255,255,.9),rgba(255,255,255,.84)),url("א (5).jpg")}
 .contact:after{background-image:linear-gradient(90deg,rgba(245,240,229,.93),rgba(245,240,229,.86)),url("א (6).jpg")}
+</style><style id="donation-choice-background-v18">
+.details-copy .activity-donate,.details-copy .general-donate{width:100%;max-width:280px;margin-top:10px!important}
+.details-copy .general-donate{color:var(--b800)!important;background:rgba(255,255,255,.84)!important;border:1px solid rgba(199,162,83,.72)!important;box-shadow:0 9px 20px rgba(6,63,66,.1)!important}
+.details-copy button[aria-disabled="true"]{cursor:default}
+.about:after,.gallery:after,.contact:after{opacity:.5}
 </style></head>
 <body>
 <header class="header"><div class="wrap nav">
@@ -315,6 +320,7 @@ Object.assign(languagePacks.en,{"נתוני פעילות":"Activity impact","מ�
 Object.assign(languagePacks.ru,{"נתוני פעילות":"Результаты деятельности","משפחות שקיבלו סיוע":"Семьи, получившие помощь","חלוקות ויוזמות חסד":"Распределения и благотворительные инициативы","שותפים לעשייה":"Партнёры в добрых делах","פעילות לאורך השנה":"Работа круглый год"});
 Object.assign(languagePacks.en,{"תמונות מהשטח":"Photos from the field"});Object.assign(languagePacks.ru,{"תמונות מהשטח":"Фотографии с места событий"});
 Object.assign(languagePacks.en,{"לתרום לפי הפעילות שמדברת אליכם":"Donate to the cause that speaks to you","בחרו את תחום הסיוע שמדבר אליכם":"Choose the cause that speaks to you","אפשר להצטרף לשותפות כללית או לבחור את תחום הפעילות הקרוב ללבכם. כל קישור כאן הוא פנימי וזמני, ויוחלף בהמשך בקישור התרומה המתאים.":"You can join the general partnership or choose the area of activity closest to your heart. These are temporary internal links and will later be replaced with the relevant donation links.","סיוע למשפחות":"Support for families","עזרה לקשישים":"Help for seniors","חלוקות חסד":"Kindness distributions"});Object.assign(languagePacks.ru,{"לתרום לפי הפעילות שמדברת אליכם":"Пожертвовать на направление, которое вам близко","בחרו את תחום הסיוע שמדבר אליכם":"Выберите направление помощи, которое вам близко","אפשר להצטרף לשותפות כללית או לבחור את תחום הפעילות הקרוב ללבכם. כל קישור כאן הוא פנימי וזמני, ויוחלף בהמשך בקישור התרומה המתאים.":"Можно поддержать организацию в целом или выбрать близкое вам направление. Сейчас это временные внутренние ссылки, которые позже будут заменены на соответствующие ссылки для пожертвований.","סיוע למשפחות":"Помощь семьям","עזרה לקשישים":"Помощь пожилым","חלוקות חסד":"Благотворительные распределения"});
+Object.assign(languagePacks.en,{"תרומה כללית":"General donation","לתרום לפי הפעילות שמדברת אליכם":"Choose the activity you would like to support"});Object.assign(languagePacks.ru,{"תרומה כללית":"Общее пожертвование","לתרום לפי הפעילות שמדברת אליכם":"Выберите направление, которое хотите поддержать"});
 const original=new WeakMap();
 let currentLanguage=localStorage.getItem('ahim-language')||'he';
 function translateValue(value,lang){return languagePacks[lang][value]||value;}
@@ -367,15 +373,15 @@ function updateDetailsLanguage(lang){
  if(activeModal){activeModal.querySelector('.details-close').textContent='×';activeModal.querySelector('p').textContent=detailCopy[lang].intro;}
 }
 function openDetails(card){
- const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><div class="details-layout"><div class="details-gallery" aria-label="תמונות מהפעילות"><img src="א (3).jpg" class="active" alt="פעילות העמותה"><img src="א (4).jpg" alt="סיוע בקהילה"><img src="א (5).jpg" alt="פעילות חסד"><img src="א (6).jpg" alt="סיוע למשפחות"></div><div class="details-copy"><button class="details-close" aria-label="Close">×</button><div class="details-kicker">לתרום לפי הפעילות שמדברת אליכם</div><h3></h3><p></p><a class="btn gold modal-partner" href="#partner"></a><a class="btn activity-donate" href="#partner"></a></div></div></div>';
+ const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><div class="details-layout"><div class="details-gallery" aria-label="תמונות מהפעילות"><img src="א (3).jpg" class="active" alt="פעילות העמותה"><img src="א (4).jpg" alt="סיוע בקהילה"><img src="א (5).jpg" alt="פעילות חסד"><img src="א (6).jpg" alt="סיוע למשפחות"></div><div class="details-copy"><button class="details-close" aria-label="Close">×</button><div class="details-kicker">לתרום לפי הפעילות שמדברת אליכם</div><h3></h3><p></p><button class="btn gold activity-donate" type="button" aria-disabled="true"></button><button class="btn general-donate" type="button" aria-disabled="true"></button></div></div></div>';
  modal.querySelector('h3').textContent=card.querySelector('h3').textContent;
  modal.querySelector('p').textContent=detailCopy[currentLanguage].intro;
- modal.querySelector('.modal-partner').textContent=currentLanguage==='he'?'לשותפות':currentLanguage==='en'?'Partner with us':'Стать партнёром';
  modal.querySelector('.activity-donate').textContent=currentLanguage==='he'?'לתרום לפעילות זו':currentLanguage==='en'?'Donate to this activity':'Пожертвовать на это направление';
+ modal.querySelector('.general-donate').textContent=currentLanguage==='he'?'תרומה כללית':currentLanguage==='en'?'General donation':'Общее пожертвование';
  document.body.appendChild(modal);activeModal=modal;
  let galleryIndex=0;const galleryImages=[...modal.querySelectorAll('.details-gallery img')];const galleryTimer=setInterval(()=>{galleryImages[galleryIndex].classList.remove('active');galleryIndex=(galleryIndex+1)%galleryImages.length;galleryImages[galleryIndex].classList.add('active');},4200);
  const close=()=>{clearInterval(galleryTimer);modal.classList.remove('open');setTimeout(()=>modal.remove(),220);activeModal=null};
- modal.querySelector('.modal-partner').addEventListener('click',event=>{event.preventDefault();close();setTimeout(()=>document.querySelector('#partner')?.scrollIntoView({behavior:'smooth',block:'start'}),80);});
+ modal.querySelectorAll('.activity-donate,.general-donate').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();}));
  modal.addEventListener('click',e=>{if(e.target===modal||e.target.closest('.details-close'))close()});
  document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',esc)}});
 }
