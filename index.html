@@ -373,7 +373,7 @@ function updateDetailsLanguage(lang){
  if(activeModal){activeModal.querySelector('.details-close').textContent='×';activeModal.querySelector('p').textContent=detailCopy[lang].intro;}
 }
 function openDetails(card){
- const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><div class="details-layout"><div class="details-gallery" aria-label="תמונות מהפעילות"><img src="א (3).jpg" class="active" alt="פעילות העמותה"><img src="א (4).jpg" alt="סיוע בקהילה"><img src="א (5).jpg" alt="פעילות חסד"><img src="א (6).jpg" alt="סיוע למשפחות"></div><div class="details-copy"><button class="details-close" aria-label="Close">×</button><div class="details-kicker">לתרום לפי הפעילות שמדברת אליכם</div><h3></h3><p></p><button class="btn gold activity-donate" type="button" aria-disabled="true"></button><button class="btn general-donate" type="button" aria-disabled="true"></button></div></div></div>';
+ const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><div class="details-layout"><div class="details-gallery" aria-label="תמונות מהפעילות"><img src="א (3).jpg" class="active" alt="פעילות העמותה"><img src="א (4).jpg" alt="סיוע בקהילה"><img src="א (5).jpg" alt="פעילות חסד"><img src="א (6).jpg" alt="סיוע למשפחות"></div><div class="details-copy"><button class="details-close" aria-label="Close">×</button><div class="details-kicker">לתרום לפי הפעילות שמדברת אליכם</div><h3></h3><p></p><button class="btn gold activity-donate" type="button" aria-disabled="true"></button><a class="btn general-donate" href="https://pay.grow.link/ODQ4NDA~b90a3f8a4f3ed36b5ec553b761a7f069-NDAwOTg1MQ" rel="noopener"></a></div></div></div>';
  modal.querySelector('h3').textContent=card.querySelector('h3').textContent;
  modal.querySelector('p').textContent=detailCopy[currentLanguage].intro;
  modal.querySelector('.activity-donate').textContent=currentLanguage==='he'?'לתרום לפעילות זו':currentLanguage==='en'?'Donate to this activity':'Пожертвовать на это направление';
@@ -381,7 +381,7 @@ function openDetails(card){
  document.body.appendChild(modal);activeModal=modal;
  let galleryIndex=0;const galleryImages=[...modal.querySelectorAll('.details-gallery img')];const galleryTimer=setInterval(()=>{galleryImages[galleryIndex].classList.remove('active');galleryIndex=(galleryIndex+1)%galleryImages.length;galleryImages[galleryIndex].classList.add('active');},4200);
  const close=()=>{clearInterval(galleryTimer);modal.classList.remove('open');setTimeout(()=>modal.remove(),220);activeModal=null};
- modal.querySelectorAll('.activity-donate,.general-donate').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();}));
+ modal.querySelector('.activity-donate').addEventListener('click',event=>{event.preventDefault();});
  modal.addEventListener('click',e=>{if(e.target===modal||e.target.closest('.details-close'))close()});
  document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',esc)}});
 }
