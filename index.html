@@ -217,6 +217,19 @@ html[lang="en"] .section-head .eyebrow:after,html[lang="en"] .about-copy .eyebro
 .gallery-seal:hover{transform:scale(1.12) rotate(-3deg)!important;filter:saturate(1.18) brightness(1.08);box-shadow:0 28px 56px rgba(6,48,50,.42),inset 0 3px 0 rgba(255,255,255,.5),inset 0 -9px 18px rgba(0,0,0,.25),inset 0 0 0 7px rgba(255,255,255,.1)!important}
 .gallery-seal:focus-visible{outline:3px solid var(--gold2);outline-offset:7px}
 @media(max-width:600px){.gallery-seal{font-size:16px!important}}
+</style><style id="gallery-carousel-v16">
+.activity-donate{margin-top:10px!important;color:var(--b800)!important;background:rgba(255,255,255,.8)!important;border:1px solid rgba(199,162,83,.72)!important;box-shadow:0 9px 20px rgba(6,63,66,.1)!important}
+.details-copy .modal-partner,.details-copy .activity-donate{width:max-content;max-width:100%;white-space:normal;text-align:center}
+.gallery-carousel{position:relative;width:100%;padding:0 54px}
+.gallery-carousel .gallery-grid{display:flex!important;direction:ltr;overflow-x:auto;overflow-y:hidden;gap:18px;padding:10px 4px 24px;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.gallery-carousel .gallery-grid::-webkit-scrollbar{display:none}
+.gallery-carousel .gallery-grid figure{flex:0 0 calc((100% - 36px)/3);height:430px!important;grid-row:auto!important;grid-column:auto!important;scroll-snap-align:center;border-radius:28px}
+.gallery-carousel .gallery-grid figure img{object-fit:cover}
+.gallery-carousel .gallery-grid figcaption{direction:rtl;right:15px;left:auto}
+.gallery-arrow{position:absolute;top:50%;z-index:4;transform:translateY(-50%);width:48px;height:48px;border:1px solid rgba(199,162,83,.65);border-radius:50%;background:rgba(255,255,255,.94);color:var(--b800);font-size:28px;line-height:1;cursor:pointer;box-shadow:0 12px 28px rgba(6,63,66,.16);transition:.25s}
+.gallery-arrow:hover{background:var(--gold2);transform:translateY(-50%) scale(1.08)}
+.gallery-arrow.prev{left:4px}.gallery-arrow.next{right:4px}
+@media(max-width:700px){.gallery-carousel{padding:0 34px}.gallery-carousel .gallery-grid{gap:12px}.gallery-carousel .gallery-grid figure{flex-basis:82vw;height:300px!important;border-radius:22px}.gallery-arrow{width:40px;height:40px;font-size:23px}.gallery-arrow.prev{left:0}.gallery-arrow.next{right:0}}
 </style></head>
 <body>
 <header class="header"><div class="wrap nav">
@@ -345,14 +358,15 @@ function updateDetailsLanguage(lang){
  if(activeModal){activeModal.querySelector('.details-close').textContent='×';activeModal.querySelector('p').textContent=detailCopy[lang].intro;}
 }
 function openDetails(card){
- const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><div class="details-layout"><div class="details-gallery" aria-label="תמונות מהפעילות"><img src="א (3).jpg" class="active" alt="פעילות העמותה"><img src="א (4).jpg" alt="סיוע בקהילה"><img src="א (5).jpg" alt="פעילות חסד"><img src="א (6).jpg" alt="סיוע למשפחות"></div><div class="details-copy"><button class="details-close" aria-label="Close">×</button><div class="details-kicker">עמותת אחים נותנים</div><h3></h3><p></p><a class="btn gold" href="#partner"></a></div></div></div>';
+ const modal=document.createElement('div');modal.className='details-backdrop open';modal.innerHTML='<div class="details-modal" role="dialog" aria-modal="true"><div class="details-layout"><div class="details-gallery" aria-label="תמונות מהפעילות"><img src="א (3).jpg" class="active" alt="פעילות העמותה"><img src="א (4).jpg" alt="סיוע בקהילה"><img src="א (5).jpg" alt="פעילות חסד"><img src="א (6).jpg" alt="סיוע למשפחות"></div><div class="details-copy"><button class="details-close" aria-label="Close">×</button><div class="details-kicker">עמותת אחים נותנים</div><h3></h3><p></p><a class="btn gold modal-partner" href="#partner"></a><a class="btn activity-donate" href="#partner"></a></div></div></div>';
  modal.querySelector('h3').textContent=card.querySelector('h3').textContent;
  modal.querySelector('p').textContent=detailCopy[currentLanguage].intro;
- modal.querySelector('a').textContent=currentLanguage==='he'?'לשותפות':currentLanguage==='en'?'Partner with us':'Стать партнёром';
+ modal.querySelector('.modal-partner').textContent=currentLanguage==='he'?'לשותפות':currentLanguage==='en'?'Partner with us':'Стать партнёром';
+ modal.querySelector('.activity-donate').textContent=currentLanguage==='he'?'לתרום לפעילות זו':currentLanguage==='en'?'Donate to this activity':'Пожертвовать на это направление';
  document.body.appendChild(modal);activeModal=modal;
  let galleryIndex=0;const galleryImages=[...modal.querySelectorAll('.details-gallery img')];const galleryTimer=setInterval(()=>{galleryImages[galleryIndex].classList.remove('active');galleryIndex=(galleryIndex+1)%galleryImages.length;galleryImages[galleryIndex].classList.add('active');},4200);
  const close=()=>{clearInterval(galleryTimer);modal.classList.remove('open');setTimeout(()=>modal.remove(),220);activeModal=null};
- modal.querySelector('a').addEventListener('click',event=>{event.preventDefault();close();setTimeout(()=>document.querySelector('#partner')?.scrollIntoView({behavior:'smooth',block:'start'}),80);});
+ modal.querySelector('.modal-partner').addEventListener('click',event=>{event.preventDefault();close();setTimeout(()=>document.querySelector('#partner')?.scrollIntoView({behavior:'smooth',block:'start'}),80);});
  modal.addEventListener('click',e=>{if(e.target===modal||e.target.closest('.details-close'))close()});
  document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',esc)}});
 }
@@ -371,5 +385,18 @@ updateDetailsLanguage(currentLanguage);updateLanguageUI(currentLanguage);
      setTimeout(()=>{img.src=sources[(offset+index)%sources.length];img.style.opacity='1';},360+index*80);
    });
  },10000);
+})();
+</script><script id="gallery-carousel-script-v16">
+(function(){
+ const track=document.querySelector('.gallery-grid');
+ if(!track||track.dataset.carouselReady)return;
+ track.dataset.carouselReady='true';
+ const shell=document.createElement('div');shell.className='gallery-carousel';
+ track.parentNode.insertBefore(shell,track);shell.appendChild(track);
+ const prev=document.createElement('button');prev.className='gallery-arrow prev';prev.type='button';prev.innerHTML='‹';prev.setAttribute('aria-label','תמונה קודמת');
+ const next=document.createElement('button');next.className='gallery-arrow next';next.type='button';next.innerHTML='›';next.setAttribute('aria-label','תמונה הבאה');
+ shell.append(prev,next);
+ const move=direction=>track.scrollBy({left:direction*track.clientWidth*.82,behavior:'smooth'});
+ prev.addEventListener('click',()=>move(1));next.addEventListener('click',()=>move(-1));
 })();
 </script></body></html>
