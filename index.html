@@ -115,6 +115,30 @@ html[lang="en"] .language-menu button,html[lang="ru"] .language-menu button{text
 .details-backdrop{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:22px;background:rgba(3,46,49,.58);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:.25s}.details-backdrop.open{opacity:1;visibility:visible}.details-modal{width:min(620px,94vw);max-height:85vh;overflow:auto;padding:34px;border-radius:30px;background:linear-gradient(145deg,#fffefa,#f1f8f5);border:1px solid rgba(229,204,138,.65);box-shadow:0 30px 100px rgba(0,0,0,.28);position:relative}.details-modal h3{font-family:"Frank Ruhl Libre",serif;color:var(--b900);font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:0 0 14px}.details-modal p{color:var(--muted);font-size:17px;margin:0 0 22px}.details-close{position:absolute;top:13px;left:16px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(7,88,91,.09);color:var(--b800);font-size:25px;cursor:pointer}
 html[lang="en"] .details-close,html[lang="ru"] .details-close{left:auto;right:16px}
 @media(prefers-reduced-motion:reduce){.hero:before{animation:none!important}}
+</style><style id="layout-typography-carousel-v10">
+/* Softer turquoise canvas instead of stark white */
+body{background:linear-gradient(180deg,#fbfdfb 0%,#f3faf8 48%,#fbfdfb 100%)}
+#activity,.gallery{background:linear-gradient(180deg,#ffffff 0%,#f2faf8 100%)}
+.contact{background:linear-gradient(180deg,#f2faf8 0%,#edf7f4 100%)}
+/* Keep Contact compact and clearly separated at the top */
+@media(min-width:901px){.nav-side.left>a[href="#contact"]{width:58px;max-width:58px;text-align:center;line-height:1.08;white-space:normal}.hero{padding-top:86px}.hero-copy h1{font-size:clamp(2.85rem,5.35vw,5.05rem);margin-top:22px}}
+/* Main headline is slightly smaller and lower, while section headings gain presence */
+.section-head h2{font-size:clamp(2.25rem,4.45vw,3.65rem);line-height:1.06}
+.card h3{font-size:clamp(1.22rem,2vw,1.48rem)}
+@media(max-width:900px){.hero-copy h1{font-size:clamp(2.8rem,10vw,3.55rem);margin-top:18px}.section-head h2{font-size:clamp(2.2rem,8vw,3.1rem)}}
+/* A substantial, dignified 3D seal */
+.seal{width:142px;height:142px;padding:20px;border:3px solid #e5cc8a;background:radial-gradient(circle at 31% 22%,#35c4bd 0%,#128e8e 34%,#07585b 68%,#04383b 100%);box-shadow:0 22px 42px rgba(6,48,50,.34),inset 0 3px 0 rgba(255,255,255,.46),inset 0 -9px 18px rgba(0,0,0,.26),inset 0 0 0 7px rgba(255,255,255,.08);text-shadow:0 2px 3px rgba(0,0,0,.28)}
+.seal:before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid rgba(255,244,193,.7);box-shadow:inset 0 0 0 2px rgba(0,0,0,.1);pointer-events:none}
+.seal:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(199,162,83,.52);transform:rotate(12deg);pointer-events:none}
+.seal small{font-size:13px}
+@media(max-width:600px){.seal{width:108px;height:108px;padding:14px;border-width:2px}.seal small{font-size:11px}}
+/* Multilingual banners and buttons stay inside their surfaces */
+html[lang="en"] .hero-copy h1,html[lang="ru"] .hero-copy h1{max-width:620px;overflow-wrap:anywhere}
+html[lang="en"] .btn,html[lang="ru"] .btn{white-space:normal;line-height:1.15;text-align:center;min-width:0}
+html[lang="en"] .partner-box,html[lang="ru"] .partner-box{overflow:hidden}
+html[lang="en"] .partner-box h2,html[lang="ru"] .partner-box h2{overflow-wrap:anywhere}
+html[lang="en"] .float-partner,html[lang="ru"] .float-partner{max-width:190px;white-space:normal;line-height:1.12}
+html[lang="en"] .seal,html[lang="ru"] .seal{overflow-wrap:anywhere}
 </style></head>
 <body>
 <header class="header"><div class="wrap nav">
@@ -250,4 +274,18 @@ function openDetails(card){
 }
 document.querySelectorAll('.activity-grid .card').forEach(card=>{const b=document.createElement('button');b.className='card-more';b.type='button';b.addEventListener('click',()=>openDetails(card));card.appendChild(b);});
 updateDetailsLanguage(currentLanguage);updateLanguageUI(currentLanguage);
+</script><script id="hero-carousel-v10">
+(function(){
+ const photos=[...document.querySelectorAll('.collage .photo img')];
+ const sources=['א (3).jpg','א (4).jpg','א (5).jpg','א (6).jpg'];
+ if(photos.length<3)return;
+ let offset=0;
+ setInterval(()=>{
+   offset=(offset+1)%sources.length;
+   photos.forEach((img,index)=>{
+     img.style.opacity='0';
+     setTimeout(()=>{img.src=sources[(offset+index)%sources.length];img.style.opacity='1';},360+index*80);
+   });
+ },10000);
+})();
 </script></body></html>
