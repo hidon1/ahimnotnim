@@ -212,6 +212,11 @@ html[lang="en"] .section-head .eyebrow:after,html[lang="en"] .about-copy .eyebro
 .impact-card:hover{transform:translateY(-6px) scale(1.025);background:rgba(255,255,255,.13)}
 .impact-card strong{display:block;font-family:"Frank Ruhl Libre",serif;font-size:clamp(1.8rem,3vw,2.7rem);color:var(--gold2);line-height:1}.impact-card span{display:block;margin-top:9px;color:#d5e3e0;font-weight:700;font-size:14px}
 @media(max-width:700px){.impact-strip{grid-template-columns:1fr 1fr}.impact-card{padding:18px 10px}.impact-card span{font-size:12px}}
+</style><style id="gallery-seal-v15">
+.gallery-seal{font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive!important;font-size:clamp(17px,2.3vw,25px)!important;font-weight:800!important;letter-spacing:.02em;line-height:1.05!important;text-align:center;text-decoration:none!important;color:#fff6cf!important;cursor:pointer;overflow:visible!important;transition:transform .4s cubic-bezier(.22,.61,.36,1),filter .4s ease,box-shadow .4s ease!important}
+.gallery-seal:hover{transform:scale(1.12) rotate(-3deg)!important;filter:saturate(1.18) brightness(1.08);box-shadow:0 28px 56px rgba(6,48,50,.42),inset 0 3px 0 rgba(255,255,255,.5),inset 0 -9px 18px rgba(0,0,0,.25),inset 0 0 0 7px rgba(255,255,255,.1)!important}
+.gallery-seal:focus-visible{outline:3px solid var(--gold2);outline-offset:7px}
+@media(max-width:600px){.gallery-seal{font-size:16px!important}}
 </style></head>
 <body>
 <header class="header"><div class="wrap nav">
@@ -224,7 +229,7 @@ html[lang="en"] .section-head .eyebrow:after,html[lang="en"] .about-copy .eyebro
 <main>
 <section class="hero" id="home"><div class="wrap hero-grid">
 <div class="hero-copy reveal"><div class="eyebrow">עמותת אחים נותנים • חסד שמגיע עד הבית</div><h1>נותנים מכל הלב.<span>מחזירים תקווה הביתה.</span></h1><p>מחברים בין אנשים שרוצים לעשות טוב לבין משפחות ויחידים הזקוקים ליד תומכת — ברגישות, באחריות, בדיסקרטיות ובכבוד.</p><div class="actions"><a class="btn gold" href="#partner">להצטרף לשותפות</a><a class="btn ghost" href="#activity">להכיר את הפעילות</a></div><div class="microtrust"><span>סיוע מכבד</span><span>פעילות לאורך השנה</span><span>נתינה באחריות</span></div></div>
-<div class="collage reveal" aria-label="תמונות מפעילות העמותה"><div class="photo p1"><img src="א (3).jpg" alt="פעילות אחים נותנים"></div><div class="photo p2"><img src="א (4).jpg" alt="פעילות חסד בקהילה"></div><div class="photo p3"><img src="א (5).jpg" alt="סיוע של העמותה"></div><div class="seal">סיוע בכבוד<small>ובדיסקרטיות</small></div></div>
+<div class="collage reveal" aria-label="תמונות מפעילות העמותה"><div class="photo p1"><img src="א (3).jpg" alt="פעילות אחים נותנים"></div><div class="photo p2"><img src="א (4).jpg" alt="פעילות חסד בקהילה"></div><div class="photo p3"><img src="א (5).jpg" alt="סיוע של העמותה"></div><a class="seal gallery-seal" href="#gallery" aria-label="תמונות מהשטח">תמונות מהשטח</a></div>
 </div></section>
 
 <div class="trust"><div class="wrap trust-box"><div class="trust-item"><b>כבוד ורגישות</b><span>סיוע אנושי ומכבד</span></div><div class="trust-item"><b>פעילות כל השנה</b><span>מענה שוטף וחלוקות</span></div><div class="trust-item"><b>שותפות אמיתית</b><span>הנתינה הופכת לעשייה</span></div><div class="trust-item"><b>אחריות ושקיפות</b><span>מידע מאומת בלבד</span></div></div></div>
@@ -287,6 +292,7 @@ ru:{
 
 Object.assign(languagePacks.en,{"נתוני פעילות":"Activity impact","משפחות שקיבלו סיוע":"Families supported","חלוקות ויוזמות חסד":"Distributions and kindness initiatives","שותפים לעשייה":"Partners in action","פעילות לאורך השנה":"Year-round activity"});
 Object.assign(languagePacks.ru,{"נתוני פעילות":"Результаты деятельности","משפחות שקיבלו סיוע":"Семьи, получившие помощь","חלוקות ויוזמות חסד":"Распределения и благотворительные инициативы","שותפים לעשייה":"Партнёры в добрых делах","פעילות לאורך השנה":"Работа круглый год"});
+Object.assign(languagePacks.en,{"תמונות מהשטח":"Photos from the field"});Object.assign(languagePacks.ru,{"תמונות מהשטח":"Фотографии с места событий"});
 const original=new WeakMap();
 let currentLanguage=localStorage.getItem('ahim-language')||'he';
 function translateValue(value,lang){return languagePacks[lang][value]||value;}
