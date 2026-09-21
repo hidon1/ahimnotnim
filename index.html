@@ -243,12 +243,30 @@ html[lang="en"] .section-head .eyebrow:after,html[lang="en"] .about-copy .eyebro
 .details-copy .general-donate{color:var(--b800)!important;background:rgba(255,255,255,.84)!important;border:1px solid rgba(199,162,83,.72)!important;box-shadow:0 9px 20px rgba(6,63,66,.1)!important}
 .details-copy button[aria-disabled="true"]{cursor:default}
 .about:after,.gallery:after,.contact:after{opacity:.5}
+</style><style id="contact-and-background-v19">
+/* Sharper, more visible photographic backgrounds while preserving text readability */
+#activity:after,.about:after,.gallery:after,.contact:after{opacity:.72!important;filter:saturate(1.04) contrast(1.03)}
+#activity:after{background-image:linear-gradient(90deg,rgba(252,250,245,.55),rgba(252,250,245,.48)),url("א (3).jpg")!important}
+.about:after{background-image:linear-gradient(90deg,rgba(238,246,243,.58),rgba(238,246,243,.48)),url("א (4).jpg")!important}
+.gallery:after{background-image:linear-gradient(90deg,rgba(255,255,255,.56),rgba(255,255,255,.46)),url("א (5).jpg")!important}
+.contact:after{background-image:linear-gradient(90deg,rgba(245,240,229,.58),rgba(245,240,229,.48)),url("א (6).jpg")!important}
+#activity>.wrap,.about>.wrap,.gallery>.wrap,.contact>.wrap{position:relative;z-index:1}
+.contact-single{display:block!important;max-width:960px;margin:auto}
+.contact-card-large{padding:clamp(34px,5vw,64px)!important;text-align:center;border:1px solid rgba(199,162,83,.32)!important;background:rgba(255,255,255,.91)!important;backdrop-filter:blur(12px);box-shadow:0 28px 70px rgba(6,63,66,.16)!important}
+.contact-card-large h3{font-family:"Frank Ruhl Libre",serif;font-size:clamp(2rem,4vw,3rem);margin:0 0 10px;color:var(--b900)}
+.contact-card-large>p{font-size:17px;color:var(--muted);margin:0 auto 28px;max-width:650px}
+.contact-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.contact-action{display:flex!important;flex-direction:column;justify-content:center;min-height:116px;padding:18px!important;border-radius:22px;background:linear-gradient(145deg,#fff,rgba(238,246,243,.94));border:1px solid rgba(7,88,91,.12);box-shadow:0 12px 28px rgba(6,63,66,.08);transition:.25s}
+.contact-action:hover{transform:translateY(-4px);border-color:rgba(199,162,83,.5);box-shadow:0 18px 34px rgba(6,63,66,.13)}
+.contact-action b{font-size:18px;color:var(--b800)}.contact-action span{font-size:14px;color:var(--muted);direction:ltr}
+.whatsapp-contact{background:linear-gradient(145deg,#f4fff8,#e6f8ec)!important}.whatsapp-contact b{color:#168a46!important}
+@media(max-width:700px){.contact-actions{grid-template-columns:1fr}.contact-card-large{padding:30px 20px!important}}
 </style></head>
 <body>
 <header class="header"><div class="wrap nav">
 <nav class="nav-side" aria-label="ניווט ראשי"><a href="#home">דף הבית</a><a href="#about">על העמותה</a><a href="#activity">הפעילות שלנו</a></nav>
 <a class="brand" href="#home" aria-label="אחים נותנים"><img src="לוגו.png" alt="לוגו עמותת אחים נותנים"></a>
-<div class="nav-side left"><a href="#gallery">גלריה</a><a href="#contact">צור קשר</a><div class="nav-tools"><div class="lang-wrap"><button class="lang" type="button" aria-haspopup="true" aria-expanded="false">שפות ▾</button><div class="language-menu" role="menu" aria-label="בחירת שפה"><button type="button" data-language="he" role="menuitem">עברית</button><button type="button" data-language="en" role="menuitem">English</button><button type="button" data-language="ru" role="menuitem">Русский</button></div></div><a class="btn gold" href="https://pay.grow.link/ODQ4NDA~b90a3f8a4f3ed36b5ec553b761a7f069-NDAwOTg1MQ">לשותפות</a></div></div>
+<div class="nav-side left"><a href="#gallery">גלריה</a><a href="#contact">צור קשר</a><div class="nav-tools"><div class="lang-wrap"><button class="lang" type="button" aria-haspopup="true" aria-expanded="false">שפות ▾</button><div class="language-menu" role="menu" aria-label="בחירת שפה"><button type="button" data-language="he" role="menuitem">עברית</button><button type="button" data-language="en" role="menuitem">English</button><button type="button" data-language="ru" role="menuitem">Русский</button></div></div><a class="btn gold" href="https://pay.grow.link/ODQ4NDA~b90a3f8a4f3ed36b5ec553b761a7f069-NDAwOTg1MQ">לתרומה</a></div></div>
 <button class="menu" id="menuBtn" aria-label="פתיחת תפריט">☰</button>
 </div><div class="mobile-menu" id="mobileMenu"><a href="#home">דף הבית</a><a href="#about">על העמותה</a><a href="#activity">הפעילות שלנו</a><a href="#gallery">גלריה</a><a href="#contact">צור קשר</a></div></header>
 
@@ -272,7 +290,7 @@ html[lang="en"] .section-head .eyebrow:after,html[lang="en"] .about-copy .eyebro
 
 <section class="partnership" id="partner"><div class="wrap"><div class="partner-box reveal"><div><div class="eyebrow" style="color:var(--gold2)">לשותפות</div><h2>בחרו את תחום הסיוע שמדבר אליכם</h2><p>אפשר להצטרף לשותפות כללית או לבחור את תחום הפעילות הקרוב ללבכם. כל קישור כאן הוא פנימי וזמני, ויוחלף בהמשך בקישור התרומה המתאים.</p><div class="partner-choice-links"><a href="#activity">סיוע למשפחות</a><a href="#activity">עזרה לקשישים</a><a href="#activity">חלוקות חסד</a></div></div><a class="btn gold" href="mailto:achimnotnim@gmail.com?subject=%D7%A9%D7%95%D7%AA%D7%A4%D7%95%D7%AA%20%D7%A2%D7%9D%20%D7%90%D7%97%D7%99%D7%9D%20%D7%A0%D7%95%D7%AA%D7%A0%D7%99%D7%9D">אני רוצה להיות שותף</a></div></div></section>
 
-<section class="contact" id="contact"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">צור קשר</div><h2>אנחנו כאן בשבילכם</h2></div><div class="contact-grid"><div class="contact-card reveal"><h3>עמותת אחים נותנים ע״ר</h3><p>לפניות, שותפויות, תרומות ומידע נוסף:</p><p><a href="mailto:achimnotnim@gmail.com">achimnotnim@gmail.com</a></p><p><a href="https://www.ahim-notnim.com/">www.ahim-notnim.com</a></p></div><form class="form reveal" action="mailto:achimnotnim@gmail.com" method="post" enctype="text/plain"><div class="fields"><input class="field" name="name" required placeholder="שם"><input class="field" name="phone" inputmode="tel" placeholder="טלפון"><input class="field" name="email" type="email" required placeholder="אימייל"><input class="field" name="subject" required placeholder="נושא הפנייה"><textarea class="field full" name="message" required placeholder="תוכן הפנייה"></textarea><button class="btn full" type="submit">שליחת פנייה</button></div></form></div></div></section>
+<section class="contact" id="contact"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">צור קשר</div><h2>אנחנו כאן בשבילכם</h2></div><div class="contact-grid contact-single"><div class="contact-card contact-card-large reveal"><h3>עמותת אחים נותנים ע״ר</h3><p>לפניות, תרומות, שותפויות ומידע נוסף — אנחנו זמינים עבורכם.</p><div class="contact-actions"><a class="contact-action" href="mailto:achimnotnim@gmail.com"><b>אימייל</b><span>achimnotnim@gmail.com</span></a><a class="contact-action" href="https://www.ahim-notnim.com/"><b>אתר העמותה</b><span>www.ahim-notnim.com</span></a><a class="contact-action whatsapp-contact" href="#contact"><b>WhatsApp</b><span>לחצו ליצירת קשר בוואטסאפ</span></a></div></div></div></div></section>
 </main>
 
 <footer class="footer"><div class="wrap"><div class="footer-grid"><div><img class="footer-logo" src="לוגו.png" alt="אחים נותנים"><p>חסד, אחריות ונתינה לאורך כל השנה.</p></div><div><h3>ניווט</h3><a href="#about">על העמותה</a><a href="#activity">הפעילות שלנו</a><a href="#gallery">גלריה</a></div><div><h3>יצירת קשר</h3><a href="mailto:achimnotnim@gmail.com">achimnotnim@gmail.com</a><a href="https://www.ahim-notnim.com/">www.ahim-notnim.com</a></div></div><div class="legal">© עמותת אחים נותנים ע״ר • כל הזכויות שמורות</div></div></footer>
